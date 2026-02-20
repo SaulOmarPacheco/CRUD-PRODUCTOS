@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .main-card {
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+
+            <div class="columns is-centered">
+                <div class="column is-10">
+
+                    <div class="card main-card">
+                        <div class="card-content">
+
+                            <h1 class="title has-text-centered has-text-primary">
+                                🛒 Gestión de Productos
+                            </h1>
+
+                            <hr>
+
+                            {% block content %}{% endblock %}
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>

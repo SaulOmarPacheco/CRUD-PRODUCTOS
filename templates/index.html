@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Productos{% endblock %}
+
+{% block content %}
+
+<div class="level mb-4">
+    <div class="level-left">
+        <h2 class="subtitle">Lista de Productos</h2>
+    </div>
+    <div class="level-right">
+        <a href="{{ url_for('create_producto') }}" class="button is-success">
+            Agregar Producto
+        </a>
+    </div>
+</div>
+
+<table class="table is-bordered is-striped is-hoverable is-fullwidth">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th class="has-text-centered">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.id_producto }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>{{ producto.stock }}</td>
+            <td class="has-text-centered">
+                <div class="buttons is-centered">
+                    <a href="{{ url_for('update_producto', id_producto=producto.id_producto) }}"
+                       class="button is-warning is-light">
+                        Actualizar
+                    </a>
+                    <a href="{{ url_for('delete_producto', id_producto=producto.id_producto) }}"
+                       class="button is-danger is-light">
+                        Eliminar
+                    </a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
