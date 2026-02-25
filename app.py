@@ -39,47 +39,47 @@ def index():
     return render_template('index.html', productos=productos)
 
 # Crear producto
-@app.route('/productos/new', methods=['GET', 'POST'])
-def create_producto():
-    if request.method == 'POST':
-        nombre = request.form['nombre']
-        descripcion = request.form.get('descripcion')  # puede venir vacío
-        precio = request.form['precio']
-        stock = request.form['stock']
+# @app.route('/productos/new', methods=['GET', 'POST'])
+# def create_producto():
+#     if request.method == 'POST':
+#         nombre = request.form['nombre']
+#         descripcion = request.form.get('descripcion')  # puede venir vacío
+#         precio = request.form['precio']
+#         stock = request.form['stock']
 
-        nvo_producto = Producto(
-            nombre=nombre,
-            descripcion=descripcion,
-            precio=precio,
-            stock=stock
-        )
+#         nvo_producto = Producto(
+#             nombre=nombre,
+#             descripcion=descripcion,
+#             precio=precio,
+#             stock=stock
+#         )
 
-        db.session.add(nvo_producto)
-        db.session.commit()
-        return redirect(url_for('index'))
+#         db.session.add(nvo_producto)
+#         db.session.commit()
+#         return redirect(url_for('index'))
 
-    return render_template('create_producto.html')
+#     return render_template('create_producto.html')
 
 # Eliminar producto
-@app.route('/productos/delete/<int:id_producto>')
-def delete_producto(id_producto):
-    producto = Producto.query.get(id_producto)
-    if producto:
-        db.session.delete(producto)
-        db.session.commit()
-    return redirect(url_for('index'))
+# @app.route('/productos/delete/<int:id_producto>')
+# def delete_producto(id_producto):
+#     producto = Producto.query.get(id_producto)
+#     if producto:
+#         db.session.delete(producto)
+#         db.session.commit()
+#     return redirect(url_for('index'))
 
 # Actualizar producto
-@app.route('/productos/update/<int:id_producto>', methods=['GET', 'POST'])
-def update_producto(id_producto):
-    producto = Producto.query.get(id_producto)
-    if request.method == 'POST':
-        producto.nombre = request.form['nombre']
-        producto.descripcion = request.form.get('descripcion')
-        producto.precio = request.form['precio']
-        producto.stock = request.form['stock']
-        db.session.commit()
-        return redirect(url_for('index'))
+# @app.route('/productos/update/<int:id_producto>', methods=['GET', 'POST'])
+# def update_producto(id_producto):
+#     producto = Producto.query.get(id_producto)
+#     if request.method == 'POST':
+#         producto.nombre = request.form['nombre']
+#         producto.descripcion = request.form.get('descripcion')
+#         producto.precio = request.form['precio']
+#         producto.stock = request.form['stock']
+#         db.session.commit()
+#         return redirect(url_for('index'))
 
     return render_template('update_producto.html', producto=producto)
 
