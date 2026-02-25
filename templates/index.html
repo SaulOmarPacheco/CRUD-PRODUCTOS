@@ -8,10 +8,10 @@
         <h2 class="subtitle">Lista de Productos</h2>
     </div>
     <div class="level-right">
-        <a href="{{ url_for('create_producto') }}" class="button is-success">
+        <!-- <a href="{{ url_for('create_producto') }}" class="button is-success">
             Agregar Producto
         </a>
-    </div>
+    </div> -->
 </div>
 
 <table class="table is-bordered is-striped is-hoverable is-fullwidth">
@@ -35,14 +35,14 @@
             <td>{{ producto.stock }}</td>
             <td class="has-text-centered">
                 <div class="buttons is-centered">
-                    <a href="{{ url_for('update_producto', id_producto=producto.id_producto) }}"
+                    <!-- <a href="{{ url_for('update_producto', id_producto=producto.id_producto) }}"
                        class="button is-warning is-light">
                         Actualizar
-                    </a>
-                    <a href="{{ url_for('delete_producto', id_producto=producto.id_producto) }}"
+                    </a> -->
+                    <!-- <a href="{{ url_for('delete_producto', id_producto=producto.id_producto) }}"
                        class="button is-danger is-light">
                         Eliminar
-                    </a>
+                    </a> -->
                 </div>
             </td>
         </tr>
